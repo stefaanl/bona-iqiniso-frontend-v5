@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {V3BiBreadcrumb, V3BiBreadcrumbItem} from "../models/V3BiBreadcrumb";
-import {V3BiAlertArray} from "../models/V3BiAlertArray";
-import {V3BiAlertBase} from "../models/V3BiAlertBase";
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {WindowService} from "./window.service";
+import {isPlatformBrowser} from "@angular/common";
+import {throwError} from "rxjs";
 
 const USER_KEY = 'auth-user';
 const LANGUAGES = 'languages';
@@ -12,100 +12,127 @@ const LANGUAGE = 'language';
   providedIn: 'root'
 })
 export class StorageService {
-  constructor() {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+    private windowService: WindowService
+  ) {}
 
   initLanguages(): void {
-    const languages = { "languages" : ['en', 'nl','fr','de']};
+    if (isPlatformBrowser(this.platformId)) {
+      const languages = {"languages": ['en', 'nl', 'fr', 'de']};
 
-    window.sessionStorage.setItem(LANGUAGES, JSON.stringify(languages));
-    window.sessionStorage.setItem(LANGUAGE, 'en');
+      this.windowService.nativeWindow.sessionStorage.setItem(LANGUAGES, JSON.stringify(languages));
+      this.windowService.nativeWindow.sessionStorage.setItem(LANGUAGE, 'en');
+    } else throwError('Not a browser');
   }
   public getLanguages(): string[] {
-    const languages = window.sessionStorage.getItem(LANGUAGES);
-    //console.log("Language set: ", languages);
-    if (languages) {
-      return JSON.parse(languages).languages;
-    } else {
-      return ['en'];
-    }
+    if (isPlatformBrowser(this.platformId)) {
+      const languages = this.windowService.nativeWindow.sessionStorage.getItem(LANGUAGES);
+      //console.log("Language set: ", languages);
+      if (languages) {
+        return JSON.parse(languages).languages;
+      } else {
+        return ['en'];
+      }
+    } else return ['en'];
   }
   initLanguage(): void {
-    window.sessionStorage.setItem(LANGUAGE, 'en');
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowService.nativeWindow.sessionStorage.setItem(LANGUAGE, 'en');
+    } else throwError('Not a browser');
   }
   setLanguage(lang : string): void {
-    window.sessionStorage.setItem(LANGUAGE, lang);
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowService.nativeWindow.sessionStorage.setItem(LANGUAGE, lang);
+    } else throwError('Not a browser');
   }
   public getLanguage(): string {
-    const language = window.sessionStorage.getItem(LANGUAGE);
+    if (isPlatformBrowser(this.platformId)) {
+      const language = this.windowService.nativeWindow.sessionStorage.getItem(LANGUAGE);
     //console.log("Set Language is: ", language);
     if (language) {
       return language;
     } else {
       return 'en';
     }
+    } else return 'en';
   }
 
   public clearUser(): void {
-    window.sessionStorage.removeItem(USER_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      this.windowService.nativeWindow.sessionStorage.removeItem(USER_KEY);
     //console.log("Preferred language is set to ", this.getLanguage());
+    } else throwError('Not a browser');
 
   }
   public saveUser(user: any): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-    window.sessionStorage.setItem(LANGUAGE, user.preferredLanguage);
-    //window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
-    console.log("user is set to ", user);
+      if (isPlatformBrowser(this.platformId)) {
+        this.windowService.nativeWindow.sessionStorage.removeItem(USER_KEY);
+        this.windowService.nativeWindow.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+        this.windowService.nativeWindow.sessionStorage.setItem(LANGUAGE, user.preferredLanguage);
+        //this.windowService.nativeWindow.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+        console.log("user is set to ", user);
+      } else throwError('Not a browser');
 
   }
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    //console.log('storage user: ', user);
-    if (user) {
-      return JSON.parse(user);
-    }
+      if (isPlatformBrowser(this.platformId)) {
+        const user = this.windowService.nativeWindow.sessionStorage.getItem(USER_KEY);
+        //console.log('storage user: ', user);
+        if (user) {
+          return JSON.parse(user);
+        }
 
-    return {};
+        return {};
+      } else throwError('Not a browser');
   }
   public isAuthenticated(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      return true;
-    }
+    if (isPlatformBrowser(this.platformId)) {
+      const user = this.windowService.nativeWindow.sessionStorage.getItem(USER_KEY);
+      if (user) {
+        return true;
+      }
 
-    return false;
+      return false;
+    } else return false;
   }
   public isAdmin(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      const userData = JSON.parse(user);
-      if (!userData.roles) return false;
-      const roles: string[] = userData.roles;
-      //console.log("roles: ", roles)
-      return roles.filter(role => role === 'ROLE_ADMIN').length > 0;
-    }
-    return false;
+    if (isPlatformBrowser(this.platformId)) {
+      const user = this.windowService.nativeWindow.sessionStorage.getItem(USER_KEY);
+      if (user) {
+        const userData = JSON.parse(user);
+        if (!userData.roles) return false;
+        const roles: string[] = userData.roles;
+        //console.log("roles: ", roles)
+        return roles.filter(role => role === 'ROLE_ADMIN').length > 0;
+      }
+      return false;
+    } else return false;
   }
   public isModerator(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      const userData = JSON.parse(user);
-      if (!userData.roles) return false;
-      const roles: string[] = userData.roles;
-      //console.log("roles: ", roles)
-      return roles.filter(role => role === 'ROLE_MODERATOR' || role === 'ROLE_ADMIN').length > 0;
-    }
-    return false;
+      if (isPlatformBrowser(this.platformId)) {
+        const user = this.windowService.nativeWindow.sessionStorage.getItem(USER_KEY);
+        if (user) {
+          const userData = JSON.parse(user);
+          if (!userData.roles) return false;
+          const roles: string[] = userData.roles;
+          //console.log("roles: ", roles)
+          return roles.filter(role => role === 'ROLE_MODERATOR' || role === 'ROLE_ADMIN').length > 0;
+        }
+        return false;
+    } else return false;
   }
   public isUser(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      const userData = JSON.parse(user);
-      if (!userData.roles) return false;
-      const roles: string[] = userData.roles;
-      //console.log("roles: ", roles)
-      return roles.filter(role => role === 'ROLE_USER' || role === 'ROLE_MODERATOR' || role === 'ROLE_ADMIN').length > 0;
-    }
-    return false;
+      if (isPlatformBrowser(this.platformId)) {
+        const user = this.windowService.nativeWindow.sessionStorage.getItem(USER_KEY);
+      if (user) {
+        const userData = JSON.parse(user);
+        if (!userData.roles) return false;
+        const roles: string[] = userData.roles;
+        //console.log("roles: ", roles)
+        return roles.filter(role => role === 'ROLE_USER' || role === 'ROLE_MODERATOR' || role === 'ROLE_ADMIN').length > 0;
+      }
+      return false;
+      } else return false;
   }
 }

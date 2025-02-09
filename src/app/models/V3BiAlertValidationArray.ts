@@ -1,6 +1,4 @@
-import {V3BiTranslationBase} from "./V3BiTranslationBase";
 import {V3BiAlertValidationBase} from "./V3BiAlertValidationBase";
-import {V3BiAlertBase} from "./V3BiAlertBase";
 
 
 
@@ -24,9 +22,6 @@ export class V3BiAlertValidationArray {
   addAlertByReference(reference: string, field?: string) : void {
     const result = this.alerts.find(alert => alert.alertReference === reference && alert.field === field);
     //console.log('V3BiAlertValidationArray - addAlert - result', result);
-    if (result) {
-      throw new Error('duplicate alert');
-    }
-    this.alerts.push(new V3BiAlertValidationBase(reference, field || undefined));
+    if (result == undefined) this.alerts.push(new V3BiAlertValidationBase(reference, field || undefined));
   }
 }

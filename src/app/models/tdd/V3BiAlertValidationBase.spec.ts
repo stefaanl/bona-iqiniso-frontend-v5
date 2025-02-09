@@ -1,37 +1,38 @@
-import {V3BiAlertBase} from "../V3BiAlertBase";
-import {V3BiAlertValidationBase} from "../V3BiAlertValidationBase";
-import {mockAlertBase, MockV3BiAlertBase} from "../mock/mock-B3BiAlertBase";
-import {
-  mockAlertValidationBaseWithField, mockAlertValidationBaseWithoutField, mockAlertValidationBaseWithUndefinedField,
-  MockV3BiAlertValidationBase
-} from "../mock/mock-V3BiAlertValidationBase";
-
+import { V3BiAlertValidationBase } from '../V3BiAlertValidationBase';
 
 describe('V3BiAlertValidationBase', () => {
-
-  beforeEach(() => {
-    console.log('V3BiAlertValidationBase: ');
+  it('should create an instance with alertReference only', () => {
+    const alertValidation = new V3BiAlertValidationBase('alert1');
+    expect(alertValidation).toBeTruthy();
+    expect(alertValidation.alertReference).toBe('alert1');
+    expect(alertValidation.field).toBeUndefined();
   });
 
-  it('should create an instance without field', () => {
-    const validationBase = mockAlertValidationBaseWithoutField;
-    expect(validationBase).toBeTruthy();
-    expect(validationBase.field).toBeUndefined();
-    expect(validationBase.alertReference).toBe("mockAlertValidationBaseWithoutField");
+  it('should create an instance with both alertReference and field', () => {
+    const alertValidation = new V3BiAlertValidationBase('alert1', 'field1');
+    expect(alertValidation).toBeTruthy();
+    expect(alertValidation.alertReference).toBe('alert1');
+    expect(alertValidation.field).toBe('field1');
   });
 
-  it('should create an instance with undefined field', () => {
-    const validationBase = mockAlertValidationBaseWithUndefinedField;
-    expect(validationBase).toBeTruthy();
-    expect(validationBase.field).toBeUndefined();
-    expect(validationBase.alertReference).toBe('mockAlertValidationBaseWithUndefinedField');
+  it('should handle empty string as field', () => {
+    const alertValidation = new V3BiAlertValidationBase('alert1', '');
+    expect(alertValidation).toBeTruthy();
+    expect(alertValidation.alertReference).toBe('alert1');
+    expect(alertValidation.field).toBeUndefined();
   });
 
-  it('should create an instance with field', () => {
-    const validationBase = mockAlertValidationBaseWithField
-    expect(validationBase).toBeTruthy();
-    expect(validationBase.field).toBe('mockField');
-    expect(validationBase.alertReference).toBe('mockAlertValidationBaseWithField');
+  it('should handle undefined as field', () => {
+    const alertValidation = new V3BiAlertValidationBase('alert1', undefined);
+    expect(alertValidation).toBeTruthy();
+    expect(alertValidation.alertReference).toBe('alert1');
+    expect(alertValidation.field).toBeUndefined();
   });
 
+  it('should handle special characters in field', () => {
+    const alertValidation = new V3BiAlertValidationBase('alert1', '!@#field$%^');
+    expect(alertValidation).toBeTruthy();
+    expect(alertValidation.alertReference).toBe('alert1');
+    expect(alertValidation.field).toBe('!@#field$%^');
+  });
 });

@@ -1,40 +1,36 @@
-// v3bifreetextbase.spec.ts
-
-import {V3BiFreeTextBase} from "../V3BiFreeTextBase";
+import { V3BiFreeTextBase } from '../V3BiFreeTextBase';
+import {mockTranslations} from "../mock/mock-V3BiTranslationBase";
 import {V3BiTranslationBase} from "../V3BiTranslationBase";
 
 describe('V3BiFreeTextBase', () => {
   let freeTextBase: V3BiFreeTextBase;
 
   beforeEach(() => {
-    const translations: V3BiTranslationBase[] = [
-      { language: 'en', text: 'Hello' },
-      { language: 'es', text: 'Hola' }
-    ];
-    freeTextBase = new V3BiFreeTextBase('greeting', translations);
+    freeTextBase = new V3BiFreeTextBase('testRef', mockTranslations);
   });
 
   it('should create an instance', () => {
     expect(freeTextBase).toBeTruthy();
   });
 
-  it('should return the correct translation for a given language', () => {
-    expect(freeTextBase.getFreeText('en')).toBe('Hello');
-    expect(freeTextBase.getFreeText('es')).toBe('Hola');
+  it('should return the correct free text for a given language', () => {
+    const result = freeTextBase.getFreeText('en');
+    expect(result).toBe(mockTranslations[0].text);
   });
 
-  it('should return "unknown language" if translation is not found', () => {
-    expect(freeTextBase.getFreeText('fr')).toBe('unknown language');
+  it('should return "unknown" if the language does not exist', () => {
+    const result = freeTextBase.getFreeText('ch');
+    expect(result).toBe('unknown language');
   });
 
-  it('should have a unique reference', () => {
-    expect(freeTextBase.reference).toBe('greeting');
+  it('should have the correct reference', () => {
+    expect(freeTextBase.reference).toBe('testRef');
   });
 
-  it('could contain at an empty translation array', () => {
-
-    freeTextBase = new V3BiFreeTextBase('greeting', []);
-
-    expect(freeTextBase.translations.length).toEqual(0);
+  it('should return "unknown" if translations object is empty', () => {
+    freeTextBase = new V3BiFreeTextBase('testRef', []);
+    const result = freeTextBase.getFreeText('en');
+    expect(result).toBe('unknown language');
   });
+
 });

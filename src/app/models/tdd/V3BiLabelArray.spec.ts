@@ -1,66 +1,66 @@
-// src/app/v3bi-label-array.service.spec.ts
-
-
-import {V3BiLabelArray} from "../V3BiLabelArray";
-import {V3BiLabelBase} from "../V3BiLabelBase";
+import { V3BiLabelArray } from '../V3BiLabelArray';
+import {mockLabelBase_simple} from "../mock/mock-V3BiLabelBase";
 import {V3BiTranslationBase} from "../V3BiTranslationBase";
+import {mockTranslations_to_add} from "../mock/mock-V3BiTranslationBase";
 
 describe('V3BiLabelArray', () => {
   let labelArray: V3BiLabelArray;
 
   beforeEach(() => {
-    const trans1 = new V3BiTranslationBase('en', 'Hello');
-    const trans2 = new V3BiTranslationBase('es', 'Hola');
-    const trans3 = new V3BiTranslationBase('en', 'Goodbye');
-    const trans4 = new V3BiTranslationBase('es', 'Adiós');
+    let mockLabelBase = mockLabelBase_simple;
 
-    const items = [
-      new V3BiLabelBase('ref1', [trans1, trans2]),
-      new V3BiLabelBase('ref2', [trans3, trans4])
-    ];
-    labelArray = new V3BiLabelArray(items);
+    labelArray = new V3BiLabelArray([mockLabelBase]);
   });
 
-  it('should initialize with provided non-empty array', () => {
-    expect(labelArray.items.length).toBe(2);
+  it('should create an instance', () => {
+    expect(labelArray).toBeTruthy();
   });
 
-  it('should initialize with empty array if provided array is empty', () => {
-    labelArray = new V3BiLabelArray([]);
-    expect(labelArray.items.length).toBe(0);
+  it('should initialize with an empty array if items is not provided', () => {
+    const emptyLabelArray = new V3BiLabelArray(null as any);
+    expect(emptyLabelArray.items.length).toBe(0);
   });
 
-  it('should return label for existing reference', () => {
-    const label = labelArray.getLabel('ref1');
-    expect(label?.reference).toBe('ref1');
+  it('should initialize with an empty array if items is empty array', () => {
+    const emptyLabelArray = new V3BiLabelArray([]);
+    expect(emptyLabelArray.items.length).toBe(0);
   });
 
-  it('should return undefined for non-existing reference', () => {
-    const label = labelArray.getLabel('non-existing-ref');
-    expect(label).toBeUndefined();
+  it('should return the correct label for a given reference', () => {
+    const result = labelArray.getLabel(mockLabelBase_simple.reference);
+    expect(result).toBe(mockLabelBase_simple);
   });
 
-  it('should return undefined label for non-existing reference in getLabelbyLanguage', () => {
-    const result = labelArray.getLabelbyLanguage('non-existing-ref', 'en');
+  it('should return undefined if the label reference does not exist', () => {
+    const result = labelArray.getLabel('nonExistentLabel');
+    expect(result).toBeUndefined();
+  });
+
+  it('should return the correct label text for a given reference and language', () => {
+    const result = labelArray.getLabelbyLanguage(mockLabelBase_simple.reference, mockLabelBase_simple.translations[0].language);
+    expect(result).toBe(mockLabelBase_simple.translations[0].text);
+  });
+
+  it('should return "undefined label" if the label reference does not exist', () => {
+    const result = labelArray.getLabelbyLanguage('nonExistentLabel', mockLabelBase_simple.translations[0].language);
     expect(result).toBe('undefined label');
   });
 
-  it('should return unknown language for existing reference but non-existing language', () => {
-    const result = labelArray.getLabelbyLanguage('ref1', 'fr');
+  it('should return "unknown language" if the language does not exist for the label', () => {
+    labelArray = new V3BiLabelArray([mockLabelBase_simple]);
+    expect(labelArray.items.length).toBe(1);
+
+    const result = labelArray.getLabelbyLanguage('label-reference', 'ch');
+    console.log('should return "unknown language" if the language does not exist for the label: result', result)
     expect(result).toBe('unknown language');
   });
 
-  it('should return translation for existing reference and language', () => {
-    const result = labelArray.getLabelbyLanguage('ref1', 'en');
-    expect(result).toBe('Hello');
-  });
-
   it('should add a new label', () => {
-    labelArray.addLabel('ref3', [
-      new V3BiTranslationBase('en', 'Yes'),
-      new V3BiTranslationBase('es', 'si')]);
-    const label = labelArray.getLabel('ref3');
-    expect(label?.reference).toBe('ref3');
-    expect(label?.getLabel('en')).toBe('Yes');
+    const nr = labelArray.items.length;
+    labelArray.addLabel('label2', mockTranslations_to_add);
+    expect(labelArray.items.length).toBe(nr + 1);
+    expect(labelArray.items[nr].reference).toBe('label2');
+    expect(labelArray.items[nr].translations[0].language).toBe(mockTranslations_to_add[0].language);
+    expect(labelArray.items[nr].translations[0].text).toBe(mockTranslations_to_add[0].text);
   });
 });

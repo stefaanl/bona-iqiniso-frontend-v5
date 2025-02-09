@@ -9,10 +9,13 @@ export class V3BiLabelArray {
 
 
   constructor(items: V3BiLabelBase[]) {
-    if (items.length > 0) {
-      this.items = items;
-    } else {
-      this.items = [];
+    if (!items) {this.items = [];}
+    else {
+      if (items.length > 0) {
+        this.items = items;
+      } else {
+        this.items = [];
+      }
     }
   }
 
@@ -20,6 +23,7 @@ export class V3BiLabelArray {
     const result = this.items.find(label => label.reference === reference);
     return result || undefined
   }
+
   getLabelbyLanguage(reference: string, language: string) {
     //console.log('looking for label ', reference, ' in language ', language);
     const result = this.getLabel(reference);

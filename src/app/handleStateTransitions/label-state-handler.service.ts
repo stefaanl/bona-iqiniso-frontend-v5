@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs";
 import {Router} from "@angular/router";
-import {BreadcrumbService} from "../generic-services/breadcrumb.service";
-import {MessageService} from "../generic-services/message.service";
+import {MessageService} from "../genericServices/message.service";
+import {BreadcrumbService} from "../genericServices/breadcrumb.service";
 
 @Injectable({
     providedIn: 'root',

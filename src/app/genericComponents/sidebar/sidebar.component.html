@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<div class="container-sidebar col-12">
+  <div class="d-grid gap-2 col-12">
+    <button class="btn btn-outline-danger col-12" type="button" routerLink="'/navigation-configuration-panel'" [disabled]="sidebar ==='disabled'">Bona iqiniso Config</button>
+    <button class="btn btn-outline-secondary col-12" type="button" [routerLink]="'/navigation-business-domain'" [disabled]="sidebar ==='disabled'">Business domain</button>
+    <button class="btn btn-outline-secondary col-12"  type="button" [routerLink]="'/navigation-application-board'" [disabled]="sidebar ==='disabled'">Application Board</button>
+    <button class="btn btn-outline-secondary col-12"  type="button" [routerLink]="'/navigation-roadmap'" [disabled]="sidebar ==='disabled'">Roadmap</button>
+    <button class="btn btn-outline-secondary col-12"  type="button" [routerLink]="'/navigation-testing-board'" [disabled]="sidebar ==='disabled'">Testing Board</button>
+  </div>
+</div>

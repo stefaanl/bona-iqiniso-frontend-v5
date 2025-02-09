@@ -1,0 +1,801 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>bona-iqiniso-frontend-v5 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">bona-iqiniso-frontend-v5 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >PasseViteService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info"
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source"
+                class="nav-link"
+
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/genericServices/passe-vite.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#add" >add</a>
+                            </li>
+                            <li>
+                                <a href="#clean" >clean</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#get" >get</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reset" >reset</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/genericServices/passe-vite.service.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Passe-vite service is used for temporary storage of an instance.
+This can be for autosave reasons or to safeguard a situation,
+waiting upon the return from another component.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="add"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>add</b></span>
+                        <a href="#add"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>add(model: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/genericServices/passe-vite.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>model</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clean"></a>
+                    <span class="name">
+                        <span ><b>clean</b></span>
+                        <a href="#clean"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clean()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/genericServices/passe-vite.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>get(model: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">src/app/genericServices/passe-vite.service.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>model</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reset</b></span>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reset(model: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/genericServices/passe-vite.service.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>model</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {V3BiBreadcrumb, V3BiBreadcrumbBase} from &quot;../models/V3BiBreadcrumb&quot;;
+import {V3BiAlertArray} from &quot;../models/V3BiAlertArray&quot;;
+import {V3BiAlertBase} from &quot;../models/V3BiAlertBase&quot;;
+import {V3BiComponentBase} from &quot;../models/V3BiComponent&quot;;
+
+const COMPONENT &#x3D; &#x27;component&#x27;;
+const NAVIGATIONPROCESS &#x3D; &#x27;navigationProcess&#x27;;
+const LABEL &#x3D; &#x27;label&#x27;;
+const ALERT &#x3D; &#x27;alert&#x27;;
+const FREETEXT &#x3D; &#x27;freetext&#x27;;
+const IMAGE &#x3D; &#x27;image&#x27;;
+const PANEL &#x3D; &#x27;panel&#x27;;
+const NAVIGATION &#x3D; &#x27;navigation&#x27;;
+const GLOSSARY &#x3D; &#x27;glossary&#x27;;
+const TORETURNTO &#x3D; &#x27;toReturnTo&#x27;;
+// The following are used to initialize the component. The data will be used to visualize correctly the component.
+const INIT_COMPONENT &#x3D; &#x27;initComponent&#x27;;
+const INIT_LABEL &#x3D; &#x27;initLabel&#x27;;
+const INIT_ALERT &#x3D; &#x27;initAlert&#x27;;
+const INIT_DESCRIPTION &#x3D; &#x27;initDescription&#x27;;
+const INIT_IMAGE &#x3D; &#x27;initImage&#x27;;
+
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class PasseViteService {
+  /****************************************************************************
+  Passe-vite service is used for temporary storage of an instance.
+  This can be for autosave reasons or to safeguard a situation,
+  waiting upon the return from another component.
+   ****************************************************************************/
+  constructor() {}
+  clean(): void {
+
+    window.sessionStorage.setItem(COMPONENT, JSON.stringify(null));
+    window.sessionStorage.setItem(LABEL, JSON.stringify(null));
+    window.sessionStorage.setItem(ALERT, JSON.stringify(null));
+    window.sessionStorage.setItem(IMAGE, JSON.stringify(null));
+    window.sessionStorage.setItem(PANEL, JSON.stringify(null));
+    window.sessionStorage.setItem(FREETEXT, JSON.stringify(null));
+    window.sessionStorage.setItem(NAVIGATION, JSON.stringify(null));
+    window.sessionStorage.setItem(GLOSSARY, JSON.stringify(null));
+    window.sessionStorage.setItem(TORETURNTO, JSON.stringify(null));
+    window.sessionStorage.setItem(NAVIGATIONPROCESS, JSON.stringify(null));
+    window.sessionStorage.setItem(INIT_COMPONENT, JSON.stringify(null));
+    window.sessionStorage.setItem(INIT_ALERT, JSON.stringify(null));
+    window.sessionStorage.setItem(INIT_LABEL, JSON.stringify(null));
+    window.sessionStorage.setItem(INIT_DESCRIPTION, JSON.stringify(null));
+    window.sessionStorage.setItem(INIT_IMAGE, JSON.stringify(null));
+
+  }
+
+
+  public add(model: string, data:any) {
+    let toStore: any &#x3D; {};
+
+    switch (model) {
+      case (COMPONENT):
+        window.sessionStorage.setItem(COMPONENT, JSON.stringify(data));
+        break;
+      case (LABEL):
+        window.sessionStorage.setItem(LABEL, JSON.stringify(data));
+        break;
+      case (ALERT):
+        window.sessionStorage.setItem(ALERT, JSON.stringify(data));
+        break;
+      case (IMAGE):
+        window.sessionStorage.setItem(IMAGE, JSON.stringify(data));
+        break;
+      case (PANEL):
+        window.sessionStorage.setItem(PANEL, JSON.stringify(data));
+        break;
+      case (NAVIGATION):
+        window.sessionStorage.setItem(NAVIGATION, JSON.stringify(data));
+        break;
+      case (NAVIGATIONPROCESS):
+        window.sessionStorage.setItem(NAVIGATIONPROCESS, JSON.stringify(data));
+        break;
+      case (FREETEXT):
+        window.sessionStorage.setItem(FREETEXT, JSON.stringify(data));
+        break;
+      case (GLOSSARY):
+        window.sessionStorage.setItem(GLOSSARY, JSON.stringify(data));
+        break;
+      case (TORETURNTO):
+        window.sessionStorage.setItem(TORETURNTO, JSON.stringify(data));
+        break;
+      case (INIT_COMPONENT):
+        window.sessionStorage.setItem(INIT_COMPONENT, JSON.stringify(data));
+        break;
+      case (INIT_LABEL):
+        window.sessionStorage.setItem(INIT_LABEL, JSON.stringify(data));
+        break;
+      case (INIT_ALERT):
+        window.sessionStorage.setItem(INIT_ALERT, JSON.stringify(data));
+        break;
+      case (INIT_DESCRIPTION):
+        window.sessionStorage.setItem(INIT_DESCRIPTION, JSON.stringify(data));
+        break;
+      case (INIT_IMAGE):
+        window.sessionStorage.setItem(INIT_IMAGE, JSON.stringify(data));
+        break;
+
+      default:
+        break;
+    }
+    /*
+    //console.log(&#x27;COMPONENT: &#x27;, window.sessionStorage.getItem(COMPONENT));
+    //console.log(&#x27;LABEL: &#x27;, window.sessionStorage.getItem(LABEL));
+    //console.log(&#x27;ALERT: &#x27;, window.sessionStorage.getItem(ALERT));
+    //console.log(&#x27;FREETEXT: &#x27;, window.sessionStorage.getItem(FREETEXT));
+    //console.log(&#x27;IMAGE: &#x27;, window.sessionStorage.getItem(IMAGE));
+    //console.log(&#x27;TORETURNTO: &#x27;, window.sessionStorage.getItem(TORETURNTO));
+
+     */
+  }
+  public reset(model: string) {
+    let toStore: any &#x3D; {};
+
+    switch (model) {
+      case (COMPONENT):
+        window.sessionStorage.setItem(COMPONENT, JSON.stringify(null));
+        break;
+      case (LABEL):
+        window.sessionStorage.setItem(LABEL, JSON.stringify(null));
+        break;
+      case (ALERT):
+        window.sessionStorage.setItem(ALERT, JSON.stringify(null));
+        break;
+      case (IMAGE):
+        window.sessionStorage.setItem(IMAGE, JSON.stringify(null));
+        break;
+      case (PANEL):
+        window.sessionStorage.setItem(PANEL, JSON.stringify(null));
+        break;
+      case (NAVIGATION):
+        window.sessionStorage.setItem(NAVIGATION, JSON.stringify(null));
+        break;
+      case (NAVIGATIONPROCESS):
+        window.sessionStorage.setItem(NAVIGATIONPROCESS, JSON.stringify(null));
+        break;
+      case (FREETEXT):
+        window.sessionStorage.setItem(FREETEXT, JSON.stringify(null));
+        break;
+      case (GLOSSARY):
+        window.sessionStorage.setItem(GLOSSARY, JSON.stringify(null));
+        break;
+      case (TORETURNTO):
+        window.sessionStorage.setItem(TORETURNTO, JSON.stringify(null));
+        break;
+      case (INIT_COMPONENT):
+        window.sessionStorage.setItem(INIT_COMPONENT, JSON.stringify(null));
+        break;
+      case (INIT_LABEL):
+        window.sessionStorage.setItem(INIT_LABEL, JSON.stringify(null));
+        break;
+      case (INIT_ALERT):
+        window.sessionStorage.setItem(INIT_ALERT, JSON.stringify(null));
+        break;
+      case (INIT_DESCRIPTION):
+        window.sessionStorage.setItem(INIT_DESCRIPTION, JSON.stringify(null));
+        break;
+      case (INIT_IMAGE):
+        window.sessionStorage.setItem(INIT_IMAGE, JSON.stringify(null));
+        break;
+      default:
+        break;
+    }
+    /*
+    //console.log(&#x27;COMPONENT: &#x27;, window.sessionStorage.getItem(COMPONENT));
+    //console.log(&#x27;LABEL: &#x27;, window.sessionStorage.getItem(LABEL));
+    //console.log(&#x27;ALERT: &#x27;, window.sessionStorage.getItem(ALERT));
+    //console.log(&#x27;FREETEXT: &#x27;, window.sessionStorage.getItem(FREETEXT));
+    //console.log(&#x27;IMAGE: &#x27;, window.sessionStorage.getItem(IMAGE));
+    //console.log(&#x27;TORETURNTO: &#x27;, window.sessionStorage.getItem(TORETURNTO));
+
+     */
+  }
+  public get(model: string): any {
+    let toReturn: any &#x3D; undefined;
+    let stored &#x3D; null;
+
+    switch (model) {
+      case (COMPONENT):
+        stored &#x3D; window.sessionStorage.getItem(COMPONENT);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (LABEL):
+        stored &#x3D; window.sessionStorage.getItem(LABEL);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (ALERT):
+        stored &#x3D; window.sessionStorage.getItem(ALERT);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (IMAGE):
+        stored &#x3D; window.sessionStorage.getItem(IMAGE);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (PANEL):
+        stored &#x3D; window.sessionStorage.getItem(PANEL);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (NAVIGATION):
+        stored &#x3D; window.sessionStorage.getItem(NAVIGATION);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (NAVIGATIONPROCESS):
+        stored &#x3D; window.sessionStorage.getItem(NAVIGATIONPROCESS);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (FREETEXT):
+        stored &#x3D; window.sessionStorage.getItem(FREETEXT);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (GLOSSARY):
+        stored &#x3D; window.sessionStorage.getItem(GLOSSARY);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (TORETURNTO):
+        stored &#x3D; window.sessionStorage.getItem(TORETURNTO);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (INIT_COMPONENT):
+        stored &#x3D; window.sessionStorage.getItem(INIT_COMPONENT);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (INIT_LABEL):
+        stored &#x3D; window.sessionStorage.getItem(INIT_LABEL);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (INIT_ALERT):
+        stored &#x3D; window.sessionStorage.getItem(INIT_ALERT);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (INIT_DESCRIPTION):
+        stored &#x3D; window.sessionStorage.getItem(INIT_DESCRIPTION);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      case (INIT_IMAGE):
+        stored &#x3D; window.sessionStorage.getItem(INIT_IMAGE);
+        if (stored) toReturn &#x3D; JSON.parse(stored);
+        break;
+      default:
+        break;
+    }
+    //console.log(&#x27;get passe-vite: &#x27;, toReturn);
+    return toReturn;
+  }
+
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'PasseViteService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -16,3 +16,6 @@ export const mockTranslations_label_simple = [
   new MockV3BiTranslationBase('en', 'en - simple reference'),
   new MockV3BiTranslationBase('fr', 'fr - simple reference'),
 ];
+export const mockTranslations_to_add = [
+  new MockV3BiTranslationBase('de', 'de - simple reference')
+];

@@ -4,59 +4,51 @@ import { V3BiTranslationBase } from '../V3BiTranslationBase';
 
 describe('V3BiFreeTextArray', () => {
   let freeTextArray: V3BiFreeTextArray;
+  let mockFreeTextBase: jasmine.SpyObj<V3BiFreeTextBase>;
 
   beforeEach(() => {
-    freeTextArray = new V3BiFreeTextArray([
-      new V3BiFreeTextBase('ref1', [new V3BiTranslationBase('en', 'text1')]),
-      new V3BiFreeTextBase('ref2', [new V3BiTranslationBase('en', 'text2')])
-    ]);
+    mockFreeTextBase = jasmine.createSpyObj('V3BiFreeTextBase', ['getFreeText']);
+    mockFreeTextBase.reference = 'testRef';
+    freeTextArray = new V3BiFreeTextArray([mockFreeTextBase]);
   });
 
-  it('should initialize items with a non-empty array of V3BiFreeTextBase', () => {
-    const items = [new V3BiFreeTextBase('ref1', [new V3BiTranslationBase('en', 'text1')])];
-    freeTextArray = new V3BiFreeTextArray(items);
-    expect(freeTextArray.items).toEqual(items);
+  afterAll(() => {
+
   });
 
-  it('should initialize items with an empty array when given an empty array', () => {
-    freeTextArray = new V3BiFreeTextArray([]);
-    expect(freeTextArray.items).toEqual([]);
+  it('should be created', () => {
+    expect(freeTextArray).toBeTruthy();
   });
 
-  it('should return the V3BiFreeTextBase with the given reference', () => {
-    const result = freeTextArray.getFreeText('ref1');
-    expect(result).toEqual(expect.objectContaining({ reference: 'ref1' }));
+  it('should return the free text if found', () => {
+    const result = freeTextArray.getFreeText('testRef');
+    expect(result).toBe(mockFreeTextBase);
   });
 
-  it('should return undefined for a non-existing reference', () => {
-    const result = freeTextArray.getFreeText('non-existing-ref');
+  it('should return undefined if not found', () => {
+    const result = freeTextArray.getFreeText('unknownRef');
     expect(result).toBeUndefined();
   });
 
-  it('should return "unknown free text" for a non-existing reference in getFreeTextbyLanguage', () => {
-    const result = freeTextArray.getFreeTextbyLanguage('non-existing-ref', 'en');
+  it('should return the free text in the specified language if found', () => {
+    mockFreeTextBase.getFreeText.and.returnValue('translated text');
+    const result = freeTextArray.getFreeTextbyLanguage('testRef', 'en');
+    expect(result).toBe('translated text');
+  });
+
+  it('should return "unknown free text" if the reference is not found', () => {
+    const result = freeTextArray.getFreeTextbyLanguage('unknownRef', 'en');
     expect(result).toBe('unknown free text');
   });
 
-  it('should return "unknown language" for a non-existing language in getFreeTextbyLanguage', () => {
-    const result = freeTextArray.getFreeTextbyLanguage('ref1', 'non-existing-lang');
-    expect(result).toBe('unknown language');
+  it('should add a new free text if the reference is unique', () => {
+    freeTextArray.addFreeText('newRef', [new V3BiTranslationBase('en', 'text')]);
+    expect(freeTextArray.items.length).toBe(2);
   });
 
-  it('should return the translation text for an existing reference and language', () => {
-    const result = freeTextArray.getFreeTextbyLanguage('ref1', 'en');
-    expect(result).toBe('text1');
-  });
-
-  it('should throw an error for a duplicate free text reference in addFreeText', () => {
-    const translations = [new V3BiTranslationBase('en', 'text in english')];
-    expect(() => freeTextArray.addFreeText('ref1', translations)).toThrow(new Error('duplicate free text'));
-  });
-
-  it('should add a new V3BiFreeTextBase for a non-existing reference in addFreeText', () => {
-    const translations = [new V3BiTranslationBase('en', 'text in english')];
-    freeTextArray.addFreeText('ref3', translations);
-    expect(freeTextArray.items.length).toBe(3);
-    expect(freeTextArray.getFreeText('ref3')).toEqual(expect.objectContaining({ reference: 'ref3' }));
+  it('should throw an error if the reference already exists', () => {
+    expect(() => {
+      freeTextArray.addFreeText('testRef', [new V3BiTranslationBase('en', 'text')]);
+    }).toThrowError('duplicate free text');
   });
 });

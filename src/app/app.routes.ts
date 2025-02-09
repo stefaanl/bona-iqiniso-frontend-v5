@@ -1,14 +1,18 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from "./components/home/home.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {ProfileComponent} from "./auth/profile/profile.component";
+import {authGuard} from "./auth/auth.guard";
+import {RegisterComponent} from "./auth/register/register.component";
+import {LoginComponent} from "./auth/login/login.component";
 
 export const routes: Routes = [
   { path: 'welcome', component: HomeComponent  },
-  /*
-  { path: 'auth', component: LoginComponent  },
-  { path: 'login', component: LoginComponent  },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard]   },
   { path: 'register', component: RegisterComponent  },
+  { path: 'auth', component: LoginComponent  },
+  { path: 'login', component: LoginComponent  },
+  /*
   { path: 'navigation-main', component: NavigationMainComponent, canActivate: [authGuard]   },
   { path: 'navigation-configuration', component: NavigationConfigurationComponent , canActivate: [adminGuard]},
   { path: 'navigation-configuration-panel', component: NavigationConfigPanelComponent , canActivate: [adminGuard]},

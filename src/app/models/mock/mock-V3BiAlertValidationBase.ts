@@ -7,7 +7,7 @@ import {
   mockAlertBaseC,
   mockAlertBaseD,
   mockAlertBaseE
-} from "./mock-B3BiAlertBase";
+} from "./mock-V3BiAlertBase";
 
 export class MockV3BiAlertValidationBase extends V3BiAlertValidationBase {
   constructor(alert: string, field?: string) {

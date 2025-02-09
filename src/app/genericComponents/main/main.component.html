@@ -1,1 +1,8 @@
 <p>main works!</p>
+<div *ngIf="image.length > 0" class="row m-0 p-0">
+  <img [src]="image" class="main-image">
+</div>
+<div class="row ms-0 me-0 p-0" style="margin-top: -350px;">
+  <ng-content></ng-content>
+</div>
+

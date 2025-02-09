@@ -2,13 +2,11 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import {LabelService} from "../services/label.service";
-import {MessageService} from "../generic-services/message.service";
 import {V3BiLabelBase} from "../models/V3BiLabelBase";
-import {PasseViteService} from "../generic-services/passe-vite.service";
-import {V3BiAlertBase} from "../models/V3BiAlertBase";
-import {V3BiTranslationBase} from "../models/V3BiTranslationBase";
 import {V3BiAlertValidationBase} from "../models/V3BiAlertValidationBase";
-import {HttpMessageService} from "../generic-services/http-message.service";
+import {PasseViteService} from "../genericServices/passe-vite.service";
+import {HttpMessageService} from "../genericServices/http-message.service";
+import {MessageService} from "../genericServices/message.service";
 
 @Injectable({
   providedIn: 'root'

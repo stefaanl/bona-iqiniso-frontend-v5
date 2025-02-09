@@ -1,14 +1,16 @@
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
-import {LabelStateHandlerService} from "../../stateHandlers/label-state-handler.service";
-import {LabelValidationHandlerService} from "../../validationHandlers/label-validation-handler.service";
 import {Subscription} from "rxjs";
-import {V3BiAlertValidationArray} from "../../models/V3BiAlertValidationArray";
+import {CommonModule, NgIf} from "@angular/common";
+import {LabelValidationHandlerService} from "../../handleValidations/label-validation-handler.service";
+import {LabelStateHandlerService} from "../../handleStateTransitions/label-state-handler.service";
 
 
 @Component({
   selector: 'app-label-event-handler',
   templateUrl: './label-event-handler.component.html',
-  styleUrls: ['./label-event-handler.component.css']
+  styleUrls: ['./label-event-handler.component.css'],
+  standalone: true,
+  imports: [CommonModule, NgIf]
 })
 export class LabelEventHandlerComponent implements OnInit, OnChanges{
 @Input() event: string | undefined;

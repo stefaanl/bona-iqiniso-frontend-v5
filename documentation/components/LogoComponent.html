@@ -1,0 +1,833 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>bona-iqiniso-frontend-v5 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">bona-iqiniso-frontend-v5 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LogoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/genericComponents/logo/logo.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-logo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>NgIf</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./logo.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./logo.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bonaByThaste" >bonaByThaste</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onLogin" >onLogin</a>
+                            </li>
+                            <li>
+                                <a href="#onLogout" >onLogout</a>
+                            </li>
+                            <li>
+                                <a href="#onProfile" >onProfile</a>
+                            </li>
+                            <li>
+                                <a href="#onRegister" >onRegister</a>
+                            </li>
+                            <li>
+                                <a href="#setLanguage" >setLanguage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#logo" >logo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(storage: <a href="../injectables/StorageService.html" target="_self">StorageService</a>, messageService: <a href="../injectables/MessageService.html" target="_self">MessageService</a>, breadcrumbService: <a href="../injectables/BreadcrumbService.html" target="_self">BreadcrumbService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>storage</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StorageService.html" target="_self" >StorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>breadcrumbService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BreadcrumbService.html" target="_self" >BreadcrumbService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logo"></a>
+                        <b>logo</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogin"></a>
+                    <span class="name">
+                        <span ><b>onLogin</b></span>
+                        <a href="#onLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogout"></a>
+                    <span class="name">
+                        <span ><b>onLogout</b></span>
+                        <a href="#onLogout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onProfile"></a>
+                    <span class="name">
+                        <span ><b>onProfile</b></span>
+                        <a href="#onProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onProfile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRegister"></a>
+                    <span class="name">
+                        <span ><b>onRegister</b></span>
+                        <a href="#onRegister"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRegister()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLanguage"></a>
+                    <span class="name">
+                        <span ><b>setLanguage</b></span>
+                        <a href="#setLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setLanguage(lang: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lang</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bonaByThaste"></a>
+                    <span class="name">
+                        <span ><b>bonaByThaste</b></span>
+                        <a href="#bonaByThaste"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,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&#x3D;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/genericComponents/logo/logo.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input} from &#x27;@angular/core&#x27;;
+import {MessageService} from &quot;../../genericServices/message.service&quot;;
+import {StorageService} from &quot;../../genericServices/storage.service&quot;;
+import {BreadcrumbService} from &quot;../../genericServices/breadcrumb.service&quot;;
+import {Router} from &quot;@angular/router&quot;;
+import {CommonModule, NgIf} from &#x27;@angular/common&#x27;;
+
+@Component({
+  selector: &#x27;app-logo&#x27;,
+  standalone: true,
+  imports: [CommonModule, NgIf],
+  templateUrl: &#x27;./logo.component.html&#x27;,
+  styleUrl: &#x27;./logo.component.css&#x27;
+})
+export class LogoComponent {
+  @Input() logo!: string;
+
+  constructor(
+    private storage: StorageService,
+    private messageService: MessageService,
+    private breadcrumbService: BreadcrumbService,
+    private router: Router
+  ) {
+
+  }
+  onLogin() {
+    console.log(&#x27;logo click - login&#x27;);
+    this.router.navigateByUrl(&#x27;/login&#x27;);
+  }
+  onRegister() {
+    console.log(&#x27;logo click - register&#x27;);
+    this.router.navigateByUrl(&#x27;/register&#x27;);
+  }
+  onProfile() {
+    console.log(&#x27;logo click - profile&#x27;);
+    this.router.navigateByUrl(&#x27;/profile&#x27;);
+  }
+
+  onLogout() {
+    console.log(&#x27;logo click - logout&#x27;);
+    this.breadcrumbService.clean();
+    this.logo &#x3D; &quot;enabled-logged-out&quot;;
+    this.storage.clearUser();
+    this.router.navigateByUrl(&#x27;/welcome&#x27;);
+  }
+
+  setLanguage(lang: string) {
+    this.storage.setLanguage(lang);
+    //console.log(&quot;Language is set to &quot;, this.storage.getLanguage());
+  }
+
+  bonaByThaste &#x3D; &#x27;data:image/png;base64,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&#x3D;&#x27;;
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row logo-img&quot;&gt;
+  &lt;img src&#x3D;&quot;assets/images/bona-iqiniso-logo.png&quot; class&#x3D;&quot;logo-image&quot;/&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;row avatar-group&quot;&gt;
+  &lt;img src&#x3D;&quot;assets/images/avatar_account.png&quot; class&#x3D;&quot;avatar&quot;/&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;text-white&quot;&gt;{{logo}}&lt;/div&gt;
+@if (logo &#x3D;&#x3D;&#x3D; &#x27;enabled-logged-out&#x27; || logo &#x3D;&#x3D;&#x3D; &#x27;disabled-logged-out&#x27;) {
+  &lt;div class&#x3D;&quot;row button-group&quot;&gt;
+    &lt;button class&#x3D;&quot;btn btn-outline-warning logo-btn&quot; (click)&#x3D;&quot;onLogin()&quot; [disabled]&#x3D;&quot;logo &#x3D;&#x3D;&#x3D; &#x27;disabled-logged-out&#x27;&quot;&gt;Login&lt;/button&gt;
+    &lt;button class&#x3D;&quot;btn btn-outline-warning logo-btn&quot; (click)&#x3D;&quot;onRegister()&quot; [disabled]&#x3D;&quot;logo &#x3D;&#x3D;&#x3D; &#x27;disabled-logged-out&#x27;&quot;&gt;Register&lt;/button&gt;
+  &lt;/div&gt;
+}
+@if(logo &#x3D;&#x3D;&#x3D; &#x27;enabled-logged-in&#x27; || logo &#x3D;&#x3D;&#x3D; &#x27;disabled-logged-in&#x27;) {
+  &lt;div class&#x3D;&quot;row button-group&quot; &gt;
+    &lt;button class&#x3D;&quot;btn btn-outline-warning logo-btn&quot; (click)&#x3D;&quot;onProfile()&quot; [disabled]&#x3D;&quot;logo &#x3D;&#x3D;&#x3D; &#x27;disabled-logged-in&#x27;&quot;&gt;Profile&lt;/button&gt;
+    &lt;button class&#x3D;&quot;btn btn-outline-warning logo-btn&quot; [disabled]&#x3D;&quot;logo &#x3D;&#x3D;&#x3D; &#x27;disabled-logged-in&#x27;&quot; (click)&#x3D;&quot;onLogout()&quot;&gt;Logout&lt;/button&gt;
+  &lt;/div&gt;
+}
+&lt;div class&#x3D;&quot;row language-group&quot;&gt;
+  &lt;a class&#x3D;&quot;language&quot; (click)&#x3D;&quot;setLanguage(&#x27;en&#x27;)&quot;&gt;&lt;img src&#x3D;&quot;assets/images/flag_en.png&quot; class&#x3D;&quot;language&quot;/&gt;&lt;/a&gt;
+  &lt;a class&#x3D;&quot;language&quot; (click)&#x3D;&quot;setLanguage(&#x27;nl&#x27;)&quot;&gt;&lt;img src&#x3D;&quot;assets/images/flag_nl.png&quot; class&#x3D;&quot;language&quot;/&gt;&lt;/a&gt;
+  &lt;a class&#x3D;&quot;language&quot; (click)&#x3D;&quot;setLanguage(&#x27;de&#x27;)&quot;&gt;&lt;img src&#x3D;&quot;assets/images/flag_de.png&quot; class&#x3D;&quot;language&quot;/&gt;&lt;/a&gt;
+  &lt;a class&#x3D;&quot;language&quot; (click)&#x3D;&quot;setLanguage(&#x27;fr&#x27;)&quot;&gt;&lt;img src&#x3D;&quot;assets/images/flag_fr.png&quot; class&#x3D;&quot;language&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row logo-img">  <img src="assets/images/bona-iqiniso-logo.png" class="logo-image"/></div><div class="row avatar-group">  <img src="assets/images/avatar_account.png" class="avatar"/></div><div class="text-white">{{logo}}</div>@if (logo === \'enabled-logged-out\' || logo === \'disabled-logged-out\') {  <div class="row button-group">    <button class="btn btn-outline-warning logo-btn" (click)="onLogin()" [disabled]="logo === \'disabled-logged-out\'">Login</button>    <button class="btn btn-outline-warning logo-btn" (click)="onRegister()" [disabled]="logo === \'disabled-logged-out\'">Register</button>  </div>}@if(logo === \'enabled-logged-in\' || logo === \'disabled-logged-in\') {  <div class="row button-group" >    <button class="btn btn-outline-warning logo-btn" (click)="onProfile()" [disabled]="logo === \'disabled-logged-in\'">Profile</button>    <button class="btn btn-outline-warning logo-btn" [disabled]="logo === \'disabled-logged-in\'" (click)="onLogout()">Logout</button>  </div>}<div class="row language-group">  <a class="language" (click)="setLanguage(\'en\')"><img src="assets/images/flag_en.png" class="language"/></a>  <a class="language" (click)="setLanguage(\'nl\')"><img src="assets/images/flag_nl.png" class="language"/></a>  <a class="language" (click)="setLanguage(\'de\')"><img src="assets/images/flag_de.png" class="language"/></a>  <a class="language" (click)="setLanguage(\'fr\')"><img src="assets/images/flag_fr.png" class="language"/></a></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LabelEventHandlerComponent', 'selector': 'app-label-event-handler'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScreenComponent', 'selector': 'app-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'UmlClassDiagramComponent', 'selector': 'app-uml-class-diagram'},{'name': 'UmlGroupedClassDiagramComponent', 'selector': 'app-uml-grouped-class-diagram'}];
+    var DIRECTIVES = [{'name': 'MarkFormTouchedDirective', 'selector': 'form[formGroup]'}];
+    var ACTUAL_COMPONENT = {'name': 'LogoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LogoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

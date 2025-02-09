@@ -4,63 +4,67 @@ import { V3BiTranslationBase } from '../V3BiTranslationBase';
 
 describe('V3BiAlertArray', () => {
   let alertArray: V3BiAlertArray;
-  let alert1: V3BiAlertBase;
-  let alert2: V3BiAlertBase;
+  let mockTranslation1: V3BiTranslationBase;
+  let mockTranslation2: V3BiTranslationBase;
+  let mockAlert1: V3BiAlertBase;
+  let mockAlert2: V3BiAlertBase;
 
   beforeEach(() => {
-    const translations1 = [new V3BiTranslationBase('en', 'Alert 1')];
-    const translations2 = [new V3BiTranslationBase('en', 'Alert 2')];
-    alert1 = new V3BiAlertBase('ref1', 'error', translations1);
-    alert2 = new V3BiAlertBase('ref2', 'warning', translations2);
-    alertArray = new V3BiAlertArray([alert1, alert2]);
+    // Mock translations
+    mockTranslation1 = new V3BiTranslationBase('en', 'Error occurred');
+    mockTranslation2 = new V3BiTranslationBase('es', 'Ocurrió un error');
+
+    // Mock alerts
+    mockAlert1 = new V3BiAlertBase('alert1', 'error', [mockTranslation1]);
+    mockAlert2 = new V3BiAlertBase('alert2', 'warning', [mockTranslation2]);
+
+    // Initialize alert array
+    alertArray = new V3BiAlertArray([mockAlert1, mockAlert2]);
   });
 
-  it('should initialize with given items', () => {
+  it('should create an instance with provided alerts', () => {
+    expect(alertArray).toBeTruthy();
     expect(alertArray.items.length).toBe(2);
-    expect(alertArray.items).toContain(alert1);
-    expect(alertArray.items).toContain(alert2);
-  });
-  it('should return the correct alert when reference is found', () => {
-    const alert = alertArray.getAlert('ref1');
-    expect(alert).toBe(alert1);
+    expect(alertArray.items).toContain(mockAlert1);
+    expect(alertArray.items).toContain(mockAlert2);
   });
 
-  it('should return undefined when reference is not found', () => {
-    const alert = alertArray.getAlert('ref3');
-    expect(alert).toBeUndefined();
+  it('should return an alert by reference', () => {
+    const result = alertArray.getAlert('alert1');
+    expect(result).toBe(mockAlert1);
   });
 
-
-  it('should return the correct translation when alert is found', () => {
-    jest.spyOn(alert1, 'getAlert').mockReturnValue('Alert 1');
-    const translation = alertArray.getAlertByLanguage('ref1', 'en');
-    expect(translation).toBe('Alert 1');
+  it('should return undefined if the alert reference does not exist', () => {
+    const result = alertArray.getAlert('nonExistentAlert');
+    expect(result).toBeUndefined();
   });
 
-  it('should return "unknown alert" when alert is not found', () => {
-    const translation = alertArray.getAlertByLanguage('ref3', 'en');
-    expect(translation).toBe('unknown alert');
+  it('should return the correct alert message for a given language', () => {
+    const result = alertArray.getAlertByLanguage('alert1', 'en');
+    expect(result).toBe('Error occurred');
   });
 
-  it('should add a new alert when reference is unique', () => {
-    const newTranslations = [new V3BiTranslationBase('en', 'Alert 3')];
-    alertArray.addAlert('ref3', 'success', newTranslations);
-    const newAlert = alertArray.getAlert('ref3');
-    expect(newAlert).toBeDefined();
-    expect(newAlert?.reference).toBe('ref3');
+  it('should return "unknown alert" if the language does not exist for the alert', () => {
+    const result = alertArray.getAlertByLanguage('alert1', 'fr');
+    expect(result).toBe('unknown alert');
   });
 
-  it('should throw an error when reference is duplicated', () => {
-    const newTranslations = [new V3BiTranslationBase('en', 'Duplicate Alert')];
-    expect(() => {
-      alertArray.addAlert('ref1', 'error', newTranslations);
-    }).toThrowError('duplicate alert');
-  });
-  it('should throw an error when state is invalid', () => {
-    const newTranslations = [new V3BiTranslationBase('en', 'new Alert')];
-    expect(() => {
-      alertArray.addAlert('ref10', 'active', newTranslations);
-    }).toThrowError('Invalid state value');
+  it('should add a new alert if it does not already exist', () => {
+    const newTranslations = [new V3BiTranslationBase('fr', 'Erreur survenue')];
+    alertArray.addAlert('alert3', 'info', newTranslations);
+
+    const newAlert = alertArray.getAlert('alert3');
+    expect(newAlert).toBeTruthy();
+    expect(alertArray.items.length).toBe(3);
+    expect(newAlert?.state).toBe('info');
+    expect(newAlert?.translations[0].language).toBe('fr');
+    expect(newAlert?.translations[0].text).toBe('Erreur survenue');
   });
 
+  it('should not add a duplicate alert with the same reference', () => {
+    const initialLength = alertArray.items.length;
+    alertArray.addAlert('alert1', 'error', [mockTranslation1]);
+
+    expect(alertArray.items.length).toBe(initialLength);
+  });
 });

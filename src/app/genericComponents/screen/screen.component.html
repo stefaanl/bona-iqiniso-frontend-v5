@@ -1,1 +1,19 @@
-<p>screen works!</p>
+<!--p>screen works!</p-->
+<div id="screen" class="container-fluid g-0 m-0 p-0">
+  <div class="row g-0" style="min-height: 250px; background-color: #000000;">
+    <div id="left-side" class="col-3">
+      <app-logo id="logo" class="row g-0" [logo]="logo"></app-logo>
+      <app-sidebar id="sidebar" class="row g-0" [sidebar]="sidebar"></app-sidebar>
+    </div>
+    <div id="right-side" class="col-9">
+      <app-breadcrumb id="breadcrumb" class="row g-0" ></app-breadcrumb>
+      <app-main id="main" class="row g-0" [component]="component" [image]="image">
+        <ng-content class="container-fluid g-0 p-0"></ng-content>
+      </app-main>
+    </div>
+  </div>
+  <div class="row g-0" style="min-height: 100px; background-color: #000000;">
+    <app-footer id="footer" class="row g-0"></app-footer>
+  </div>
+
+</div>

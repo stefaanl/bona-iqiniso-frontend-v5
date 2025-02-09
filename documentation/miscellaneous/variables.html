@@ -1,0 +1,1365 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>bona-iqiniso-frontend-v5 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">bona-iqiniso-frontend-v5 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#$" title="src/app/genericComponents/uml-class-diagram/uml-class-diagram.component.ts" ><b>$</b>&nbsp;&nbsp;&nbsp;(src/.../uml-class-diagram.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#$" title="src/app/genericComponents/uml-grouped-class-diagram/uml-grouped-class-diagram.component.ts" ><b>$</b>&nbsp;&nbsp;&nbsp;(src/.../uml-grouped-class-diagram.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#adminChildrenGuard" title="src/app/auth/admin.guard.ts" ><b>adminChildrenGuard</b>&nbsp;&nbsp;&nbsp;(src/.../admin.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#adminGuard" title="src/app/auth/admin.guard.ts" ><b>adminGuard</b>&nbsp;&nbsp;&nbsp;(src/.../admin.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ALERT" title="src/app/genericServices/passe-vite.service.ts" ><b>ALERT</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ALERTS" title="src/app/genericServices/http-message.service.ts" ><b>ALERTS</b>&nbsp;&nbsp;&nbsp;(src/.../http-message.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ALERTS" title="src/app/genericServices/message.service.ts" ><b>ALERTS</b>&nbsp;&nbsp;&nbsp;(src/.../message.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appConfig" title="src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authGuard" title="src/app/auth/auth.guard.ts" ><b>authGuard</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#bootstrap" title="src/main.server.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(src/.../main.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#COMPONENT" title="src/app/genericServices/passe-vite.service.ts" ><b>COMPONENT</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="src/app/app.config.server.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CRUMB" title="src/app/genericServices/breadcrumb.service.ts" ><b>CRUMB</b>&nbsp;&nbsp;&nbsp;(src/.../breadcrumb.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXCEL_EXTENSION" title="src/app/genericServices/export-excel.service.ts" ><b>EXCEL_EXTENSION</b>&nbsp;&nbsp;&nbsp;(src/.../export-excel.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXCEL_TYPE" title="src/app/genericServices/export-excel.service.ts" ><b>EXCEL_TYPE</b>&nbsp;&nbsp;&nbsp;(src/.../export-excel.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FREETEXT" title="src/app/genericServices/passe-vite.service.ts" ><b>FREETEXT</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GLOSSARY" title="src/app/genericServices/passe-vite.service.ts" ><b>GLOSSARY</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IMAGE" title="src/app/genericServices/passe-vite.service.ts" ><b>IMAGE</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INIT_ALERT" title="src/app/genericServices/passe-vite.service.ts" ><b>INIT_ALERT</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INIT_COMPONENT" title="src/app/genericServices/passe-vite.service.ts" ><b>INIT_COMPONENT</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INIT_DESCRIPTION" title="src/app/genericServices/passe-vite.service.ts" ><b>INIT_DESCRIPTION</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INIT_IMAGE" title="src/app/genericServices/passe-vite.service.ts" ><b>INIT_IMAGE</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INIT_LABEL" title="src/app/genericServices/passe-vite.service.ts" ><b>INIT_LABEL</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LABEL" title="src/app/genericServices/passe-vite.service.ts" ><b>LABEL</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LANGUAGE" title="src/app/genericServices/storage.service.ts" ><b>LANGUAGE</b>&nbsp;&nbsp;&nbsp;(src/.../storage.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LANGUAGES" title="src/app/genericServices/storage.service.ts" ><b>LANGUAGES</b>&nbsp;&nbsp;&nbsp;(src/.../storage.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#moderatorGuard" title="src/app/auth/moderator.guard.ts" ><b>moderatorGuard</b>&nbsp;&nbsp;&nbsp;(src/.../moderator.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NAVIGATION" title="src/app/genericServices/passe-vite.service.ts" ><b>NAVIGATION</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NAVIGATIONPROCESS" title="src/app/genericServices/passe-vite.service.ts" ><b>NAVIGATIONPROCESS</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PAGINATION" title="src/app/genericServices/pagination.service.ts" ><b>PAGINATION</b>&nbsp;&nbsp;&nbsp;(src/.../pagination.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PANEL" title="src/app/genericServices/passe-vite.service.ts" ><b>PANEL</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverConfig" title="src/app/app.config.server.ts" ><b>serverConfig</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TORETURNTO" title="src/app/genericServices/passe-vite.service.ts" ><b>TORETURNTO</b>&nbsp;&nbsp;&nbsp;(src/.../passe-vite.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USER_KEY" title="src/app/genericServices/storage.service.ts" ><b>USER_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../storage.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#userGuard" title="src/app/auth/user.guard.ts" ><b>userGuard</b>&nbsp;&nbsp;&nbsp;(src/.../user.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#VALIDATIONALERTS" title="src/app/genericServices/http-message.service.ts" ><b>VALIDATIONALERTS</b>&nbsp;&nbsp;&nbsp;(src/.../http-message.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#VALIDATIONALERTS" title="src/app/genericServices/message.service.ts" ><b>VALIDATIONALERTS</b>&nbsp;&nbsp;&nbsp;(src/.../message.service.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/genericComponents/uml-class-diagram/uml-class-diagram.component.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="$"></a>
+                    <span class="name">
+                        <span ><b>$</b></span>
+                        <a href="#$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>go.GraphObject.make</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericComponents/uml-grouped-class-diagram/uml-grouped-class-diagram.component.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="$"></a>
+                    <span class="name">
+                        <span ><b>$</b></span>
+                        <a href="#$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>go.GraphObject.make</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/admin.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminChildrenGuard"></a>
+                    <span class="name">
+                        <span ><b>adminChildrenGuard</b></span>
+                        <a href="#adminChildrenGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateChildFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(childRoute, state) &#x3D;&gt; {
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminGuard"></a>
+                    <span class="name">
+                        <span ><b>adminGuard</b></span>
+                        <a href="#adminGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const storage &#x3D; inject(StorageService);
+  const router &#x3D; inject(Router)
+
+  if (!storage.isAuthenticated()) {
+    //router.navigateByUrl(&quot;/login&quot;);
+    return false;
+  };
+
+  if (!storage.isAdmin()) {
+    //router.navigateByUrl(&quot;/login&quot;);
+    return false;
+  };
+
+
+  return true;
+
+
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/passe-vite.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ALERT"></a>
+                    <span class="name">
+                        <span ><b>ALERT</b></span>
+                        <a href="#ALERT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;alert&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="COMPONENT"></a>
+                    <span class="name">
+                        <span ><b>COMPONENT</b></span>
+                        <a href="#COMPONENT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;component&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FREETEXT"></a>
+                    <span class="name">
+                        <span ><b>FREETEXT</b></span>
+                        <a href="#FREETEXT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;freetext&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GLOSSARY"></a>
+                    <span class="name">
+                        <span ><b>GLOSSARY</b></span>
+                        <a href="#GLOSSARY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;glossary&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IMAGE"></a>
+                    <span class="name">
+                        <span ><b>IMAGE</b></span>
+                        <a href="#IMAGE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="INIT_ALERT"></a>
+                    <span class="name">
+                        <span ><b>INIT_ALERT</b></span>
+                        <a href="#INIT_ALERT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;initAlert&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="INIT_COMPONENT"></a>
+                    <span class="name">
+                        <span ><b>INIT_COMPONENT</b></span>
+                        <a href="#INIT_COMPONENT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;initComponent&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="INIT_DESCRIPTION"></a>
+                    <span class="name">
+                        <span ><b>INIT_DESCRIPTION</b></span>
+                        <a href="#INIT_DESCRIPTION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;initDescription&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="INIT_IMAGE"></a>
+                    <span class="name">
+                        <span ><b>INIT_IMAGE</b></span>
+                        <a href="#INIT_IMAGE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;initImage&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="INIT_LABEL"></a>
+                    <span class="name">
+                        <span ><b>INIT_LABEL</b></span>
+                        <a href="#INIT_LABEL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;initLabel&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LABEL"></a>
+                    <span class="name">
+                        <span ><b>LABEL</b></span>
+                        <a href="#LABEL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;label&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NAVIGATION"></a>
+                    <span class="name">
+                        <span ><b>NAVIGATION</b></span>
+                        <a href="#NAVIGATION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;navigation&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NAVIGATIONPROCESS"></a>
+                    <span class="name">
+                        <span ><b>NAVIGATIONPROCESS</b></span>
+                        <a href="#NAVIGATIONPROCESS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;navigationProcess&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PANEL"></a>
+                    <span class="name">
+                        <span ><b>PANEL</b></span>
+                        <a href="#PANEL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;panel&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TORETURNTO"></a>
+                    <span class="name">
+                        <span ><b>TORETURNTO</b></span>
+                        <a href="#TORETURNTO"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;toReturnTo&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/http-message.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ALERTS"></a>
+                    <span class="name">
+                        <span ><b>ALERTS</b></span>
+                        <a href="#ALERTS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;alerts&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VALIDATIONALERTS"></a>
+                    <span class="name">
+                        <span ><b>VALIDATIONALERTS</b></span>
+                        <a href="#VALIDATIONALERTS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;validation alerts&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/message.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ALERTS"></a>
+                    <span class="name">
+                        <span ><b>ALERTS</b></span>
+                        <a href="#ALERTS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;alerts&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VALIDATIONALERTS"></a>
+                    <span class="name">
+                        <span ><b>VALIDATIONALERTS</b></span>
+                        <a href="#VALIDATIONALERTS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;validation alerts&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/auth.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authGuard"></a>
+                    <span class="name">
+                        <span ><b>authGuard</b></span>
+                        <a href="#authGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const storage &#x3D; inject(StorageService);
+  const router &#x3D; inject(Router)
+  //console.log(&#x27;authGuard: &#x27;, storage.getUser());
+  //console.log(&#x27;authGuard: &#x27;, storage.isAuthenticated());
+  if (storage.isAuthenticated()) return true;
+  //router.navigateByUrl(&quot;/login&quot;);
+  return false;
+
+
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/main.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bootstrap"></a>
+                    <span class="name">
+                        <span ><b>bootstrap</b></span>
+                        <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; bootstrapApplication(AppComponent, config)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/app.config.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mergeApplicationConfig(appConfig, serverConfig)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverConfig"></a>
+                    <span class="name">
+                        <span ><b>serverConfig</b></span>
+                        <a href="#serverConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [
+    provideServerRendering()
+  ]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/breadcrumb.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CRUMB"></a>
+                    <span class="name">
+                        <span ><b>CRUMB</b></span>
+                        <a href="#CRUMB"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;breadcrumb&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/export-excel.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXCEL_EXTENSION"></a>
+                    <span class="name">
+                        <span ><b>EXCEL_EXTENSION</b></span>
+                        <a href="#EXCEL_EXTENSION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;.xlsx&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXCEL_TYPE"></a>
+                    <span class="name">
+                        <span ><b>EXCEL_TYPE</b></span>
+                        <a href="#EXCEL_TYPE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset&#x3D;UTF-8&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/storage.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LANGUAGE"></a>
+                    <span class="name">
+                        <span ><b>LANGUAGE</b></span>
+                        <a href="#LANGUAGE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;language&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LANGUAGES"></a>
+                    <span class="name">
+                        <span ><b>LANGUAGES</b></span>
+                        <a href="#LANGUAGES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;languages&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USER_KEY"></a>
+                    <span class="name">
+                        <span ><b>USER_KEY</b></span>
+                        <a href="#USER_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;auth-user&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/moderator.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="moderatorGuard"></a>
+                    <span class="name">
+                        <span ><b>moderatorGuard</b></span>
+                        <a href="#moderatorGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const storage &#x3D; inject(StorageService);
+  const router &#x3D; inject(Router)
+
+  if (!storage.isAuthenticated()) {
+    //router.navigateByUrl(&quot;/login&quot;);
+    return false;
+  };
+
+  if (!storage.isModerator()) {
+    //router.navigateByUrl(&quot;/login&quot;);
+    return false;
+  };
+
+
+  return true;
+
+
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/genericServices/pagination.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PAGINATION"></a>
+                    <span class="name">
+                        <span ><b>PAGINATION</b></span>
+                        <a href="#PAGINATION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;pagination&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/user.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userGuard"></a>
+                    <span class="name">
+                        <span ><b>userGuard</b></span>
+                        <a href="#userGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const storage &#x3D; inject(StorageService);
+  const router &#x3D; inject(Router)
+  //console.log(&#x27;is user authenticated: &#x27;, storage.isAuthenticated());
+  if (!storage.isAuthenticated()) {
+    //router.navigateByUrl(&quot;/login&quot;);
+    return false;
+  }
+  //console.log(&#x27;is user: &#x27;, storage.isUser());
+
+  if (!storage.isUser()) {
+    //router.navigateByUrl(&quot;/login&quot;);
+    return false;
+  };
+
+
+  return true;
+
+
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

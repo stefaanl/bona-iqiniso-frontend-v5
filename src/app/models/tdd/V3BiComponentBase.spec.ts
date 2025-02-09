@@ -1,60 +1,56 @@
-import {V3BiComponentBase} from "../V3BiComponent";
+import { V3BiComponentBase } from '../V3BiComponentBase';
+import {
+  mockComponent_basic, mockComponent_empty_alert, mockComponent_empty_label, mockComponent_no_alert,
+  mockComponent_no_description, mockComponent_no_image, mockComponent_no_label,
+  mockComponent_no_parent
+} from "../mock/mock-V3BiComponentBase";
 
-describe('V3BiComponentBase Tests', () => {
+describe('V3BiComponentBase', () => {
+  let component: V3BiComponentBase;
 
-  it('should assign the provided reference string', () => {
-    const component = new V3BiComponentBase('ref123');
-    expect(component.reference).toBe('ref123');
+  beforeEach(() => {
   });
 
-  it('should assign the provided parentComponent string', () => {
-    const component = new V3BiComponentBase('ref123', 'parentComp');
-    expect(component.parentComponent).toBe('parentComp');
+  it('should create an instance with all attributes', () => {
+    const component = mockComponent_basic;
+    expect(component).toBeTruthy();
+    expect(component.reference).toBe(mockComponent_basic.reference);
+    expect(component.parentComponent).toBe(mockComponent_basic.parentComponent);
+    expect(component.description).toBe(mockComponent_basic.description);
+    expect(component.image).toBe(mockComponent_basic.image);
+    expect(component.labels).toEqual(mockComponent_basic.labels);
+    expect(component.alerts).toEqual(mockComponent_basic.alerts);
   });
 
-  it('should set parentComponent to undefined if not provided', () => {
-    const component = new V3BiComponentBase('ref123');
-    expect(component.parentComponent).toBeUndefined();
+  it('should set optional parent to undefined if not provided', () => {
+    const minimalComponent = mockComponent_no_parent;
+    expect(minimalComponent.parentComponent).toBeUndefined();
   });
 
-  it('should assign the provided description string', () => {
-    const component = new V3BiComponentBase('ref123', undefined, 'This is a description');
-    expect(component.description).toBe('This is a description');
+  it('should set optional description to undefined if not provided', () => {
+    const minimalComponent = mockComponent_no_description;
+    expect(minimalComponent.description).toBeUndefined();
+  });
+  it('should set optional image to undefined if not provided', () => {
+    const minimalComponent = mockComponent_no_image;
+    expect(minimalComponent.image).toBeUndefined();
+  });
+  it('should set optional label to undefined if not provided', () => {
+    const minimalComponent = mockComponent_no_label;
+    expect(minimalComponent.labels).toBeUndefined();
   });
 
-  it('should set description to undefined if not provided', () => {
-    const component = new V3BiComponentBase('ref123');
-    expect(component.description).toBeUndefined();
+  it('should set optional alert to undefined if not provided', () => {
+    const minimalComponent = mockComponent_no_alert;
+    expect(minimalComponent.alerts).toBeUndefined();
+  });
+  it('should set empty label', () => {
+    const minimalComponent = mockComponent_empty_label;
+    expect(minimalComponent.labels?.length).toBe(0);
   });
 
-  it('should assign the provided image string', () => {
-    const component = new V3BiComponentBase('ref123', undefined, undefined, 'image.png');
-    expect(component.image).toBe('image.png');
+  it('should set empty alert', () => {
+    const minimalComponent = mockComponent_empty_alert;
+    expect(minimalComponent.alerts?.length).toBe(0);
   });
-
-  it('should set image to undefined if not provided', () => {
-    const component = new V3BiComponentBase('ref123');
-    expect(component.image).toBeUndefined();
-  });
-
-  it('should assign the provided labels array', () => {
-    const component = new V3BiComponentBase('ref123', undefined, undefined, undefined, ['label1', 'label2']);
-    expect(component.labels).toEqual(['label1', 'label2']);
-  });
-
-  it('should set labels to undefined if not provided', () => {
-    const component = new V3BiComponentBase('ref123');
-    expect(component.labels).toBeUndefined();
-  });
-
-  it('should assign the provided alerts array', () => {
-    const component = new V3BiComponentBase('ref123', undefined, undefined, undefined, undefined, ['alert1', 'alert2']);
-    expect(component.alerts).toEqual(['alert1', 'alert2']);
-  });
-
-  it('should set alerts to undefined if not provided', () => {
-    const component = new V3BiComponentBase('ref123');
-    expect(component.alerts).toBeUndefined();
-  });
-
 });

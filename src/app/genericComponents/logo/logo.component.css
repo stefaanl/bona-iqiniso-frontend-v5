@@ -1,0 +1,61 @@
+.language-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.language {
+  width: auto;
+  height: 25px;
+  margin-right: 4px;
+}
+
+.logo-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.logo-image {
+  width: 90%;
+}
+.avatar-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 16px;
+  width: 96px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding: 16px;
+
+}
+.logo-btn {
+  margin-bottom: 16px;
+  width: 80%;
+  height: 32px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}

@@ -1,1 +1,14 @@
 <p>breadcrumb works!</p>
+<nav aria-label="breadcrumb" class="nav-breadcrumb">
+  <ol class="breadcrumb">
+    @for (crumb of breadcrumbs; track crumb.item; let i = $index) {
+      <li class="breadcrumb-item">
+        <button type="button" class="btn btn-outline-secondary"(click)="onClick(i)">
+        {{ crumb.item }}
+        </button>
+      </li>
+    } @empty {
+    <li>There are no items.</li>
+    }
+  </ol>
+</nav>

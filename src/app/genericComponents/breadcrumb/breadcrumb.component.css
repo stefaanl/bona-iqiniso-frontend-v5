@@ -1,0 +1,17 @@
+.nav-breadcrumb {
+  color: #f2f7fb;
+  border-style: none;
+  padding-left: 16px;
+  padding-top: 8px;
+}
+
+li.breadcrumb-item.active {
+  color: #fca400;
+}
+
+li.breadcrumb-item.active::before {
+  color: #fca400;
+}
+li.breadcrumb-item::before {
+  color: #f2f7fb;
+}

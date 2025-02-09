@@ -1,1 +1,11 @@
-<p>home works!</p>
+<!--p>home works!</p-->
+<app-screen [component]="'welcome'" [image]="backgroundImage" [logo]="logoState" [sidebar]="sidebarState">
+  <div class="container-component">
+    <div class="row mb-4">
+      <h1>Welcome to Bona Iqiniso</h1>
+    </div>
+    <div class="row col-2">
+      <button id="btn_login" class="btn btn-base" routerLink="/login">Login</button>
+    </div>
+  </div>
+</app-screen>

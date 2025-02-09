@@ -1,0 +1,858 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>bona-iqiniso-frontend-v5 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">bona-iqiniso-frontend-v5 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ScreenComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/genericComponents/screen/screen.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-screen</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/LogoComponent.html" target="_self" >LogoComponent</a></code>
+                                <code><a href="../components/SidebarComponent.html" target="_self" >SidebarComponent</a></code>
+                                <code><a href="../components/MainComponent.html" target="_self" >MainComponent</a></code>
+                                <code><a href="../components/BreadcrumbComponent.html" target="_self" >BreadcrumbComponent</a></code>
+                                <code><a href="../components/FooterComponent.html" target="_self" >FooterComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./screen.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./screen.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deco1Source" >deco1Source</a>
+                            </li>
+                            <li>
+                                <a href="#deco2Source" >deco2Source</a>
+                            </li>
+                            <li>
+                                <a href="#deco3Source" >deco3Source</a>
+                            </li>
+                            <li>
+                                <a href="#source48" >source48</a>
+                            </li>
+                            <li>
+                                <a href="#source56" >source56</a>
+                            </li>
+                            <li>
+                                <a href="#source57" >source57</a>
+                            </li>
+                            <li>
+                                <a href="#source58" >source58</a>
+                            </li>
+                            <li>
+                                <a href="#source59" >source59</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#component" >component</a>
+                            </li>
+                            <li>
+                                <a href="#image" >image</a>
+                            </li>
+                            <li>
+                                <a href="#logo" >logo</a>
+                            </li>
+                            <li>
+                                <a href="#sidebar" >sidebar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="component"></a>
+                        <b>component</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="image"></a>
+                        <b>image</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logo"></a>
+                        <b>logo</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sidebar"></a>
+                        <b>sidebar</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deco1Source"></a>
+                    <span class="name">
+                        <span ><b>deco1Source</b></span>
+                        <a href="#deco1Source"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,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&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deco2Source"></a>
+                    <span class="name">
+                        <span ><b>deco2Source</b></span>
+                        <a href="#deco2Source"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,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&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deco3Source"></a>
+                    <span class="name">
+                        <span ><b>deco3Source</b></span>
+                        <a href="#deco3Source"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,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&#x3D;&#x3D;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="source48"></a>
+                    <span class="name">
+                        <span ><b>source48</b></span>
+                        <a href="#source48"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAADKADAAQAAAABAAAADAAAAAAwxNhnAAAAMElEQVQoFWPMzs7+z0AkYGJismMiUi1c2agGeFDgYQzCUGIBOncNHiejSP3///81APqlBzJRC5QwAAAAAElFTkSuQmCC&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="source56"></a>
+                    <span class="name">
+                        <span ><b>source56</b></span>
+                        <a href="#source56"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAoCAYAAADKSBvHAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAADKADAAQAAAABAAAAKAAAAAAEhVGjAAAAn0lEQVQ4EWPMzs7+ysDAwAXEBAEjI+NCJoKq0BSMakALEKzc0VDCGixogqOhhBYgWLmjoYQ1WNAEh0socaL5Cy8X5GlGvCrQJIdBKH1nQfMTBhdYr70DCq5hZmZeOmHChMOMwErxP4YqBoaPQIW7mJiYlgoJCW1vaGj4BVMDsuEHUPICkD4NxKeAJp0GmnQLKIbNIAaGmTNnssJ0E0MDAHTIGoSP1L28AAAAAElFTkSuQmCC&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="source57"></a>
+                    <span class="name">
+                        <span ><b>source57</b></span>
+                        <a href="#source57"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAwCAYAAAAPfWqeAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGqADAAQAAAABAAAAMAAAAADkcKOVAAACCUlEQVRYCe1W3ysEURQ+Z8zseqAo5EdsUWQfPVDa8idIpNSSF+WVeN9X/gIPlHbZSPvij1DeRV5YIvJEfs/dmeNcmqHN7M7FbKk5tXvvnXPu9937zZl7D0IJo2x3gyg8DRPaY4BaJpq8yJYIL+nSi7202VEvqDABhKPCehgigCrgPyTaLo5VGbtElIm1mGDNCaswy7i1INH/0HTaau8Swl7kXUwzePRv4T9XqgthHROxPAGbVgkSuQct4I248CGRK4VqJ5ROVTE3PpTOlUK1457eqhOL4ynd1QSRlzowdQHV/ec4vmN9jVEiIkppsLHaaYEdJ9TiZFOcL6o4A/aY9FwDpoQWgC97wsy05QzQ53Hy7Eo+xdd0q9+b4RoB6wioWk70Y4i4byRnBhFTtkrWNauQyIUQ0UAhu5aQfRUiGa9sRLaUNngirjW4LKgAkSSRFrh0HzQAKul9xFl37UzkNsHJYXwZl+z6JmKS5cjU5bqDZqZbb7jf6IzLtRWTLiQq9yo8/aF0ntKUc4TSlVPI0/8PpOPDz3P53zj8H6pIMTMT65MYBFYv35wN3+B5PvJNZBOkuMLh38/sH7wjnxvj+u9Whga+IwTtMHAiRHjUI/pB4ESAuIDjJ3eSyHfWyWC/xp/YLWq4ZCQvVpw5OrPmnMFvWpbpnovFPAGeGjXGLo7k35PgN5g/mvsGsZOUiRYk3GoAAAAASUVORK5CYII&#x3D;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="source58"></a>
+                    <span class="name">
+                        <span ><b>source58</b></span>
+                        <a href="#source58"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,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&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="source59"></a>
+                    <span class="name">
+                        <span ><b>source59</b></span>
+                        <a href="#source59"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data:image/png;base64,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&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/genericComponents/screen/screen.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input} from &#x27;@angular/core&#x27;;
+import {LogoComponent} from &quot;../logo/logo.component&quot;;
+import {SidebarComponent} from &quot;../sidebar/sidebar.component&quot;;
+import {MainComponent} from &quot;../main/main.component&quot;;
+import {BreadcrumbComponent} from &quot;../breadcrumb/breadcrumb.component&quot;;
+import {FooterComponent} from &quot;../footer/footer.component&quot;;
+
+@Component({
+  selector: &#x27;app-screen&#x27;,
+  standalone: true,
+  imports: [LogoComponent, SidebarComponent, MainComponent, BreadcrumbComponent, FooterComponent],
+  templateUrl: &#x27;./screen.component.html&#x27;,
+  styleUrl: &#x27;./screen.component.css&#x27;
+})
+export class ScreenComponent {
+  @Input() component!: string;
+  @Input() image!: string;
+  @Input() logo!: string;
+  @Input() sidebar!: string;
+
+
+  ngOnInit() {
+    //console.log(this.logo);
+    //console.log(this.sidebar);
+  }
+
+
+  deco1Source &#x3D; &#x27;data:image/png;base64,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&#x27;;
+  // tslint:disable-next-line:max-line-length
+  deco2Source &#x3D; &#x27;data:image/png;base64,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&#x27;;
+  // tslint:disable-next-line:max-line-length
+  deco3Source &#x3D; &#x27;data:image/png;base64,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&#x3D;&#x3D;&#x27;;
+  // tslint:disable-next-line:max-line-length
+  source48 &#x3D; &#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAADKADAAQAAAABAAAADAAAAAAwxNhnAAAAMElEQVQoFWPMzs7+z0AkYGJismMiUi1c2agGeFDgYQzCUGIBOncNHiejSP3///81APqlBzJRC5QwAAAAAElFTkSuQmCC&#x27;;
+  // tslint:disable-next-line:max-line-length
+  source56 &#x3D; &#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAoCAYAAADKSBvHAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAADKADAAQAAAABAAAAKAAAAAAEhVGjAAAAn0lEQVQ4EWPMzs7+ysDAwAXEBAEjI+NCJoKq0BSMakALEKzc0VDCGixogqOhhBYgWLmjoYQ1WNAEh0socaL5Cy8X5GlGvCrQJIdBKH1nQfMTBhdYr70DCq5hZmZeOmHChMOMwErxP4YqBoaPQIW7mJiYlgoJCW1vaGj4BVMDsuEHUPICkD4NxKeAJp0GmnQLKIbNIAaGmTNnssJ0E0MDAHTIGoSP1L28AAAAAElFTkSuQmCC&#x27;;
+  // tslint:disable-next-line:max-line-length
+  source57 &#x3D; &#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAwCAYAAAAPfWqeAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGqADAAQAAAABAAAAMAAAAADkcKOVAAACCUlEQVRYCe1W3ysEURQ+Z8zseqAo5EdsUWQfPVDa8idIpNSSF+WVeN9X/gIPlHbZSPvij1DeRV5YIvJEfs/dmeNcmqHN7M7FbKk5tXvvnXPu9937zZl7D0IJo2x3gyg8DRPaY4BaJpq8yJYIL+nSi7202VEvqDABhKPCehgigCrgPyTaLo5VGbtElIm1mGDNCaswy7i1INH/0HTaau8Swl7kXUwzePRv4T9XqgthHROxPAGbVgkSuQct4I248CGRK4VqJ5ROVTE3PpTOlUK1457eqhOL4ynd1QSRlzowdQHV/ec4vmN9jVEiIkppsLHaaYEdJ9TiZFOcL6o4A/aY9FwDpoQWgC97wsy05QzQ53Hy7Eo+xdd0q9+b4RoB6wioWk70Y4i4byRnBhFTtkrWNauQyIUQ0UAhu5aQfRUiGa9sRLaUNngirjW4LKgAkSSRFrh0HzQAKul9xFl37UzkNsHJYXwZl+z6JmKS5cjU5bqDZqZbb7jf6IzLtRWTLiQq9yo8/aF0ntKUc4TSlVPI0/8PpOPDz3P53zj8H6pIMTMT65MYBFYv35wN3+B5PvJNZBOkuMLh38/sH7wjnxvj+u9Whga+IwTtMHAiRHjUI/pB4ESAuIDjJ3eSyHfWyWC/xp/YLWq4ZCQvVpw5OrPmnMFvWpbpnovFPAGeGjXGLo7k35PgN5g/mvsGsZOUiRYk3GoAAAAASUVORK5CYII&#x3D;&#x27;;
+  // tslint:disable-next-line:max-line-length
+  source58 &#x3D; &#x27;data:image/png;base64,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&#x27;;
+  // tslint:disable-next-line:max-line-length
+  source59 &#x3D; &#x27;data:image/png;base64,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&#x27;;
+  // tslint:disable-next-line:max-line-length
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--p&gt;screen works!&lt;/p--&gt;
+&lt;div id&#x3D;&quot;screen&quot; class&#x3D;&quot;container-fluid g-0 m-0 p-0&quot;&gt;
+  &lt;div class&#x3D;&quot;row g-0&quot; style&#x3D;&quot;min-height: 250px; background-color: #000000;&quot;&gt;
+    &lt;div id&#x3D;&quot;left-side&quot; class&#x3D;&quot;col-3&quot;&gt;
+      &lt;app-logo id&#x3D;&quot;logo&quot; class&#x3D;&quot;row g-0&quot; [logo]&#x3D;&quot;logo&quot;&gt;&lt;/app-logo&gt;
+      &lt;app-sidebar id&#x3D;&quot;sidebar&quot; class&#x3D;&quot;row g-0&quot; [sidebar]&#x3D;&quot;sidebar&quot;&gt;&lt;/app-sidebar&gt;
+    &lt;/div&gt;
+    &lt;div id&#x3D;&quot;right-side&quot; class&#x3D;&quot;col-9&quot;&gt;
+      &lt;app-breadcrumb id&#x3D;&quot;breadcrumb&quot; class&#x3D;&quot;row g-0&quot; &gt;&lt;/app-breadcrumb&gt;
+      &lt;app-main id&#x3D;&quot;main&quot; class&#x3D;&quot;row g-0&quot; [component]&#x3D;&quot;component&quot; [image]&#x3D;&quot;image&quot;&gt;
+        &lt;ng-content class&#x3D;&quot;container-fluid g-0 p-0&quot;&gt;&lt;/ng-content&gt;
+      &lt;/app-main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row g-0&quot; style&#x3D;&quot;min-height: 100px; background-color: #000000;&quot;&gt;
+    &lt;app-footer id&#x3D;&quot;footer&quot; class&#x3D;&quot;row g-0&quot;&gt;&lt;/app-footer&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!--p>screen works!</p--><div id="screen" class="container-fluid g-0 m-0 p-0">  <div class="row g-0" style="min-height: 250px; background-color: #000000;">    <div id="left-side" class="col-3">      <app-logo id="logo" class="row g-0" [logo]="logo"></app-logo>      <app-sidebar id="sidebar" class="row g-0" [sidebar]="sidebar"></app-sidebar>    </div>    <div id="right-side" class="col-9">      <app-breadcrumb id="breadcrumb" class="row g-0" ></app-breadcrumb>      <app-main id="main" class="row g-0" [component]="component" [image]="image">        <ng-content class="container-fluid g-0 p-0"></ng-content>      </app-main>    </div>  </div>  <div class="row g-0" style="min-height: 100px; background-color: #000000;">    <app-footer id="footer" class="row g-0"></app-footer>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LabelEventHandlerComponent', 'selector': 'app-label-event-handler'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoComponent', 'selector': 'app-logo'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScreenComponent', 'selector': 'app-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'UmlClassDiagramComponent', 'selector': 'app-uml-class-diagram'},{'name': 'UmlGroupedClassDiagramComponent', 'selector': 'app-uml-grouped-class-diagram'}];
+    var DIRECTIVES = [{'name': 'MarkFormTouchedDirective', 'selector': 'form[formGroup]'}];
+    var ACTUAL_COMPONENT = {'name': 'ScreenComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ScreenComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

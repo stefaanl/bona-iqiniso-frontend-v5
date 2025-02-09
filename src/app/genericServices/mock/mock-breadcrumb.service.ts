@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {V3BiBreadcrumb, V3BiBreadcrumbItem} from "../../models/V3BiBreadcrumb";
+import {V3BiBreadcrumbArray, V3BiBreadcrumbBase} from "../../models/V3BiBreadcrumbArray";
 
 const CRUMB = 'breadcrumb';
 

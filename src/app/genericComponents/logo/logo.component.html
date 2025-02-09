@@ -1,1 +1,25 @@
-<p>logo works!</p>
+<div class="row logo-img">
+  <img src="assets/images/bona-iqiniso-logo.png" class="logo-image"/>
+</div>
+<div class="row avatar-group">
+  <img src="assets/images/avatar_account.png" class="avatar"/>
+</div>
+<div class="text-white">{{logo}}</div>
+@if (logo === 'enabled-logged-out' || logo === 'disabled-logged-out') {
+  <div class="row button-group">
+    <button class="btn btn-outline-warning logo-btn" (click)="onLogin()" [disabled]="logo === 'disabled-logged-out'">Login</button>
+    <button class="btn btn-outline-warning logo-btn" (click)="onRegister()" [disabled]="logo === 'disabled-logged-out'">Register</button>
+  </div>
+}
+@if(logo === 'enabled-logged-in' || logo === 'disabled-logged-in') {
+  <div class="row button-group" >
+    <button class="btn btn-outline-warning logo-btn" (click)="onProfile()" [disabled]="logo === 'disabled-logged-in'">Profile</button>
+    <button class="btn btn-outline-warning logo-btn" [disabled]="logo === 'disabled-logged-in'" (click)="onLogout()">Logout</button>
+  </div>
+}
+<div class="row language-group">
+  <a class="language" (click)="setLanguage('en')"><img src="assets/images/flag_en.png" class="language"/></a>
+  <a class="language" (click)="setLanguage('nl')"><img src="assets/images/flag_nl.png" class="language"/></a>
+  <a class="language" (click)="setLanguage('de')"><img src="assets/images/flag_de.png" class="language"/></a>
+  <a class="language" (click)="setLanguage('fr')"><img src="assets/images/flag_fr.png" class="language"/></a>
+</div>

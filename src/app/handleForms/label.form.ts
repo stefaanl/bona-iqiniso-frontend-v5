@@ -1,10 +1,10 @@
 import {FormBuilder, FormControl, FormArray, FormGroup} from '@angular/forms';
 
-import {PasseViteService} from "../generic-services/passe-vite.service";
 import {V3BiLabelBase} from "../models/V3BiLabelBase";
 import {V3BiTranslationBase} from "../models/V3BiTranslationBase";
-import {GoogletranslateService} from "../generic-services/googletranslate.service";
 import {LabelService} from "../services/label.service";
+import {PasseViteService} from "../genericServices/passe-vite.service";
+import {GoogletranslateService} from "../genericServices/googletranslate.service";
 
 
 export function createLabelForm(fb: FormBuilder, initialValues?: V3BiLabelBase): FormGroup {

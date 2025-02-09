@@ -1,5 +1,5 @@
 import {mockTranslations, mockTranslations_label_simple} from "./mock-V3BiTranslationBase";
-import {MockV3BiAlertBase} from "./mock-B3BiAlertBase";
+import {MockV3BiAlertBase} from "./mock-V3BiAlertBase";
 import {V3BiLabelBase} from "../V3BiLabelBase";
 
 export class MockV3BiLabelBase {
